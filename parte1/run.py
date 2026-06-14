@@ -18,11 +18,22 @@ from bb.solver import BranchAndBoundSolver
 _VERIFY_TOL = 1e-4
 
 
-def _build_summary(solver: BranchAndBoundSolver, milp_z: float) -> str:
-    """Build the end-of-run summary block."""
+def _build_summary(solver: BranchAndBoundSolver, milp_z: float | None) -> str:
+    """Build the end-of-run summary block.
+
+    Parameters
+    ----------
+    solver:
+        Solver after solve() has been called.
+    milp_z:
+        Reference optimal value from scipy.milp, or None for partial runs
+        (when max_nodes was set). When provided, the B&B result is verified
+        against it and a ValueError is raised if they diverge.
+    """
     model = solver.model
     nodes = solver.nodes
     n_solved = len(nodes)
+    is_partial = solver.max_nodes is not None
 
     incumbent = next((n for n in nodes if n.is_incumbent), None)
     if incumbent is None:
@@ -33,21 +44,26 @@ def _build_summary(solver: BranchAndBoundSolver, milp_z: float) -> str:
         for name, v in zip(model.var_names, incumbent.x)
     )
     bb_z_fmt = format_number(incumbent.Z, is_objective=True)
-    milp_z_fmt = format_number(milp_z, is_objective=True)
 
-    bb_z_val = incumbent.Z
-    if abs(bb_z_val - milp_z) > _VERIFY_TOL:
-        raise ValueError(
-            f"B&B result {bb_z_val:.6f} diverges from scipy.milp result "
-            f"{milp_z:.6f} by more than {_VERIFY_TOL}. Model: {model.name}"
-        )
+    nodes_line = f"Nós resolvidos: {n_solved}" + (" (execução parcial)" if is_partial else "")
+    solution_label = "Melhor solução:" if is_partial else "Solução ótima:"
 
     lines = [
         f"=== Resultado - {model.name} ===",
-        f"Nós resolvidos: {n_solved}",
-        f"Solução ótima: {var_str}  |  Z = {bb_z_fmt}",
-        f"Verificação milp: Z = {milp_z_fmt}  ✓",
+        nodes_line,
+        f"{solution_label} {var_str}  |  Z = {bb_z_fmt}",
     ]
+
+    if milp_z is not None:
+        bb_z_val = incumbent.Z
+        if abs(bb_z_val - milp_z) > _VERIFY_TOL:
+            raise ValueError(
+                f"B&B result {bb_z_val:.6f} diverges from scipy.milp result "
+                f"{milp_z:.6f} by more than {_VERIFY_TOL}. Model: {model.name}"
+            )
+        milp_z_fmt = format_number(milp_z, is_objective=True)
+        lines.append(f"Verificação milp: Z = {milp_z_fmt}  ✓")
+
     return "\n".join(lines)
 
 
@@ -96,7 +112,7 @@ def main() -> None:
     print(format_tree(nodes, model))
     print()
 
-    milp_z = verify_with_milp(model)
+    milp_z = verify_with_milp(model) if solver.max_nodes is None else None
     print(_build_summary(solver, milp_z))
 
     if args.json_out:
