@@ -8,7 +8,7 @@ organised by part. Each part is self-contained and can be run independently.
 ```
 lista_mma/
   parte1/    # Branch-and-Bound solver (Exercises 1, 2 and 4)
-  parte3/    # (to be added)
+  parte3/    # Transport, assignment and investment solvers (Exercises 4, 5 and 6)
   parte4/    # (to be added)
   requirements.txt
 ```
@@ -125,3 +125,63 @@ python -m pytest tests/ -v
 
 Expected: 25 tests pass (unit tests for integrality check, branching variable selection,
 number formatting, and end-to-end verification against `scipy.optimize.milp`).
+
+---
+
+## Parte 3 - Transport, Assignment and Investment Solvers
+
+Solves three optimisation exercises using `scipy.optimize.linprog` and
+`scipy.optimize.milp` (HiGHS backend).
+
+### Exercises
+
+| Exercise | Type | Model | Solver |
+|----------|------|-------|--------|
+| 4 | Unbalanced transportation (Deise-Luzia) | LP - equality constraints | `linprog` |
+| 5 | Worker-to-task assignment (6x6) | Binary IP | `milp` + `linear_sum_assignment` |
+| 6 | Capital investment selection (10 projects) | Binary IP with logical constraints | `milp` |
+
+### Usage
+
+Run from the `parte3/` directory:
+
+```bash
+cd parte3
+python run_parte3.py --exercicio {4,5,6} [--json-out PATH]
+```
+
+| Argument | Required | Description |
+|----------|----------|-------------|
+| `--exercicio` | yes | Exercise number: 4, 5, or 6 |
+| `--json-out` | no | Path for JSON solution export |
+
+### Examples
+
+```bash
+# Exercise 4 - transportation problem with JSON export
+python run_parte3.py --exercicio 4 --json-out output/transporte_ex4.json
+
+# Exercise 5 - assignment problem
+python run_parte3.py --exercicio 5 --json-out output/designacao_ex5.json
+
+# Exercise 6 - investment selection
+python run_parte3.py --exercicio 6 --json-out output/investimento_ex6.json
+```
+
+### Optimal results
+
+| Exercise | Result |
+|----------|--------|
+| 4 | Total transport cost = 16,678.50 |
+| 5 | Minimum total assignment time = 99 min |
+| 6 | Maximum present value = $ 475,000 (projects 1,2,3,7,10; investment $ 395,000) |
+
+### Running tests
+
+```bash
+cd parte3
+python -m pytest tests/ -v
+```
+
+Expected: 18 tests pass (supply/demand balance, assignment validity,
+logical constraint satisfaction, budget and manager limit checks).
