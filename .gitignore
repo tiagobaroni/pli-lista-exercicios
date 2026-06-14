@@ -28,5 +28,8 @@ parte4/output/
 .DS_Store
 Thumbs.db
 
+# Local planning docs (not part of the repository)
+docs/
+
 # Claude Code
 CLAUDE.md
