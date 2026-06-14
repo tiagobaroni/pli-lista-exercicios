@@ -3,10 +3,10 @@ message: "Se utilizar este trabalho, por favor cite usando os metadados abaixo."
 title: "lista_mma: solucoes computacionais de Programacao Linear Inteira Mista"
 authors:
   - family-names: Baroni
-    given-names: Tiago H. Franca
+    given-names: Tiago H. França
 repository-code: "https://github.com/tiagobaroni/pli-lista-exercicios"
 license: MIT
-date-released: "2025-01-01"
+date-released: "2026-06-14"
 keywords:
   - milp
   - branch-and-bound
