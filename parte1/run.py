@@ -33,7 +33,7 @@ def _build_summary(solver: BranchAndBoundSolver, milp_z: float | None) -> str:
     model = solver.model
     nodes = solver.nodes
     n_solved = len(nodes)
-    is_partial = solver.max_nodes is not None
+    is_partial = not solver.tree_complete
 
     incumbent = next((n for n in nodes if n.is_incumbent), None)
     if incumbent is None:
@@ -112,7 +112,7 @@ def main() -> None:
     print(format_tree(nodes, model))
     print()
 
-    milp_z = verify_with_milp(model) if solver.max_nodes is None else None
+    milp_z = verify_with_milp(model) if solver.tree_complete else None
     print(_build_summary(solver, milp_z))
 
     if args.json_out:

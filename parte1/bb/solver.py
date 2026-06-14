@@ -110,6 +110,7 @@ class BranchAndBoundSolver:
         self.strategy = strategy
         self.max_nodes = max_nodes
         self.nodes: list[BBNode] = []
+        self.tree_complete: bool = False
         self._next_id: int = 0
         self._incumbent_z: float = -math.inf if model.sense == "max" else math.inf
 
@@ -146,6 +147,7 @@ class BranchAndBoundSolver:
             self.nodes.append(node)
             nodes_solved += 1
 
+        self.tree_complete = len(queue) == 0
         self._mark_incumbent()
         return self.nodes
 
