@@ -1,0 +1,54 @@
+{
+  "exercicio": 5,
+  "workers": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6"
+  ],
+  "tasks": [
+    "J1",
+    "J2",
+    "J3",
+    "J4",
+    "J5",
+    "J6"
+  ],
+  "assignment": [
+    {
+      "worker": "T1",
+      "task": "J6",
+      "time_min": 20.0
+    },
+    {
+      "worker": "T2",
+      "task": "J4",
+      "time_min": 18.0
+    },
+    {
+      "worker": "T3",
+      "task": "J5",
+      "time_min": 17.0
+    },
+    {
+      "worker": "T4",
+      "task": "J3",
+      "time_min": 13.0
+    },
+    {
+      "worker": "T5",
+      "task": "J2",
+      "time_min": 14.0
+    },
+    {
+      "worker": "T6",
+      "task": "J1",
+      "time_min": 17.0
+    }
+  ],
+  "total_time_min": 99.0,
+  "verify_total_min": 99.0,
+  "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+}

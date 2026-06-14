@@ -1,0 +1,191 @@
+[
+  {
+    "id": 0,
+    "parent_id": null,
+    "branch": [],
+    "relax_status": "optimal",
+    "Z": 22.33333333333334,
+    "x": {
+      "x1": 0.0,
+      "x2": 3.166666666666667,
+      "x3": 0.7222222222222227,
+      "x4": 0.0
+    },
+    "node_status": "Ramificado",
+    "is_incumbent": false
+  },
+  {
+    "id": 1,
+    "parent_id": 0,
+    "branch": [
+      "x3 <= 0"
+    ],
+    "relax_status": "optimal",
+    "Z": 15.833333333333332,
+    "x": {
+      "x1": 0.0,
+      "x2": 3.1666666666666665,
+      "x3": 0.0,
+      "x4": 0.0
+    },
+    "node_status": "Ramificado",
+    "is_incumbent": false
+  },
+  {
+    "id": 3,
+    "parent_id": 1,
+    "branch": [
+      "x2 <= 3",
+      "x3 <= 0"
+    ],
+    "relax_status": "optimal",
+    "Z": 15.714285714285714,
+    "x": {
+      "x1": 0.0,
+      "x2": 3.0,
+      "x3": 0.0,
+      "x4": 0.14285714285714285
+    },
+    "node_status": "Ramificado",
+    "is_incumbent": false
+  },
+  {
+    "id": 5,
+    "parent_id": 3,
+    "branch": [
+      "x2 <= 3",
+      "x3 <= 0",
+      "x4 <= 0"
+    ],
+    "relax_status": "optimal",
+    "Z": 15.166666666666666,
+    "x": {
+      "x1": 0.16666666666666666,
+      "x2": 3.0,
+      "x3": 0.0,
+      "x4": 0.0
+    },
+    "node_status": "Ramificado",
+    "is_incumbent": false
+  },
+  {
+    "id": 7,
+    "parent_id": 5,
+    "branch": [
+      "x1 <= 0",
+      "x2 <= 3",
+      "x3 <= 0",
+      "x4 <= 0"
+    ],
+    "relax_status": "optimal",
+    "Z": 15.0,
+    "x": {
+      "x1": 0.0,
+      "x2": 3.0,
+      "x3": 0.0,
+      "x4": 0.0
+    },
+    "node_status": "Solução Candidata",
+    "is_incumbent": false
+  },
+  {
+    "id": 8,
+    "parent_id": 5,
+    "branch": [
+      "x1 >= 1",
+      "x2 <= 3",
+      "x3 <= 0",
+      "x4 <= 0"
+    ],
+    "relax_status": "optimal",
+    "Z": 11.833333333333332,
+    "x": {
+      "x1": 1.0,
+      "x2": 2.1666666666666665,
+      "x3": 0.0,
+      "x4": 0.0
+    },
+    "node_status": "Inferior a melhor já obtida",
+    "is_incumbent": false
+  },
+  {
+    "id": 6,
+    "parent_id": 3,
+    "branch": [
+      "x2 <= 3",
+      "x3 <= 0",
+      "x4 >= 1"
+    ],
+    "relax_status": "optimal",
+    "Z": 15.0,
+    "x": {
+      "x1": 0.0,
+      "x2": 2.0,
+      "x3": 0.0,
+      "x4": 1.0
+    },
+    "node_status": "Inferior a melhor já obtida",
+    "is_incumbent": false
+  },
+  {
+    "id": 4,
+    "parent_id": 1,
+    "branch": [
+      "x2 >= 4",
+      "x3 <= 0"
+    ],
+    "relax_status": "infeasible",
+    "Z": null,
+    "x": null,
+    "node_status": "Solução Infactível",
+    "is_incumbent": false
+  },
+  {
+    "id": 2,
+    "parent_id": 0,
+    "branch": [
+      "x3 >= 1"
+    ],
+    "relax_status": "optimal",
+    "Z": 20.666666666666664,
+    "x": {
+      "x1": 0.0,
+      "x2": 2.333333333333333,
+      "x3": 1.0,
+      "x4": 0.0
+    },
+    "node_status": "Ramificado",
+    "is_incumbent": false
+  },
+  {
+    "id": 9,
+    "parent_id": 2,
+    "branch": [
+      "x2 <= 2",
+      "x3 >= 1"
+    ],
+    "relax_status": "optimal",
+    "Z": 20.000000000000004,
+    "x": {
+      "x1": 1.0000000000000042,
+      "x2": 2.0,
+      "x3": 1.0,
+      "x4": 0.0
+    },
+    "node_status": "Solução Ótima",
+    "is_incumbent": true
+  },
+  {
+    "id": 10,
+    "parent_id": 2,
+    "branch": [
+      "x2 >= 3",
+      "x3 >= 1"
+    ],
+    "relax_status": "infeasible",
+    "Z": null,
+    "x": null,
+    "node_status": "Solução Infactível",
+    "is_incumbent": false
+  }
+]

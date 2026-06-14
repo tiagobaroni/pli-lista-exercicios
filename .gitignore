@@ -19,10 +19,6 @@ env/
 .vscode/
 *.iml
 
-# Output files
-parte1/output/
-parte3/output/
-parte4/output/
 
 # OS
 .DS_Store

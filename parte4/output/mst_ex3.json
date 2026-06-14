@@ -1,0 +1,186 @@
+{
+  "exercicio": 3,
+  "fonte": 1,
+  "sumidouro": 12,
+  "caminhos_aumentadores": [
+    {
+      "iteracao": 1,
+      "caminho": [
+        1,
+        2,
+        4,
+        9,
+        10,
+        12
+      ],
+      "gargalo": 4,
+      "fluxo_acumulado": 4
+    },
+    {
+      "iteracao": 2,
+      "caminho": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        12
+      ],
+      "gargalo": 3,
+      "fluxo_acumulado": 7
+    },
+    {
+      "iteracao": 3,
+      "caminho": [
+        1,
+        3,
+        5,
+        8,
+        10,
+        12
+      ],
+      "gargalo": 4,
+      "fluxo_acumulado": 11
+    }
+  ],
+  "fluxo_maximo": 11,
+  "fluxo_por_arco": [
+    {
+      "origem": 1,
+      "destino": 3,
+      "fluxo": 7,
+      "capacidade": 7
+    },
+    {
+      "origem": 1,
+      "destino": 2,
+      "fluxo": 4,
+      "capacidade": 10
+    },
+    {
+      "origem": 2,
+      "destino": 4,
+      "fluxo": 4,
+      "capacidade": 4
+    },
+    {
+      "origem": 3,
+      "destino": 4,
+      "fluxo": 3,
+      "capacidade": 6
+    },
+    {
+      "origem": 3,
+      "destino": 6,
+      "fluxo": 0,
+      "capacidade": 5
+    },
+    {
+      "origem": 3,
+      "destino": 5,
+      "fluxo": 4,
+      "capacidade": 8
+    },
+    {
+      "origem": 4,
+      "destino": 5,
+      "fluxo": 0,
+      "capacidade": 9
+    },
+    {
+      "origem": 4,
+      "destino": 9,
+      "fluxo": 7,
+      "capacidade": 8
+    },
+    {
+      "origem": 5,
+      "destino": 6,
+      "fluxo": 0,
+      "capacidade": 7
+    },
+    {
+      "origem": 5,
+      "destino": 8,
+      "fluxo": 4,
+      "capacidade": 10
+    },
+    {
+      "origem": 9,
+      "destino": 5,
+      "fluxo": 0,
+      "capacidade": 20
+    },
+    {
+      "origem": 9,
+      "destino": 8,
+      "fluxo": 0,
+      "capacidade": 7
+    },
+    {
+      "origem": 8,
+      "destino": 10,
+      "fluxo": 4,
+      "capacidade": 4
+    },
+    {
+      "origem": 9,
+      "destino": 10,
+      "fluxo": 7,
+      "capacidade": 7
+    },
+    {
+      "origem": 6,
+      "destino": 7,
+      "fluxo": 0,
+      "capacidade": 22
+    },
+    {
+      "origem": 7,
+      "destino": 11,
+      "fluxo": 0,
+      "capacidade": 6
+    },
+    {
+      "origem": 7,
+      "destino": 10,
+      "fluxo": 0,
+      "capacidade": 9
+    },
+    {
+      "origem": 11,
+      "destino": 12,
+      "fluxo": 0,
+      "capacidade": 11
+    },
+    {
+      "origem": 10,
+      "destino": 12,
+      "fluxo": 11,
+      "capacidade": 13
+    }
+  ],
+  "corte_minimo": {
+    "lado_fonte": [
+      1,
+      2
+    ],
+    "arcos": [
+      [
+        1,
+        3,
+        7
+      ],
+      [
+        2,
+        4,
+        4
+      ]
+    ],
+    "soma_capacidades": 11
+  },
+  "verificacao": {
+    "networkx_fluxo": 11,
+    "ok": true
+  }
+}

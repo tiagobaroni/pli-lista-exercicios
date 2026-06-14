@@ -1,0 +1,40 @@
+{
+  "exercicio": 6,
+  "projects": [
+    "Proj 1",
+    "Proj 2",
+    "Proj 3",
+    "Proj 4",
+    "Proj 5",
+    "Proj 6",
+    "Proj 7",
+    "Proj 8",
+    "Proj 9",
+    "Proj 10"
+  ],
+  "y": [
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1
+  ],
+  "selected": [
+    "Proj 1",
+    "Proj 2",
+    "Proj 3",
+    "Proj 7",
+    "Proj 10"
+  ],
+  "n_selected": 5,
+  "total_investment": 395000.0,
+  "budget": 400000.0,
+  "total_vp": 475000.0,
+  "max_projects": 5,
+  "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+}
