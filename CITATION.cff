@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Se utilizar este trabalho, por favor cite usando os metadados abaixo."
+title: "lista_mma: solucoes computacionais de Programacao Linear Inteira Mista"
+authors:
+  - family-names: Baroni
+    given-names: Tiago H. Franca
+repository-code: "https://github.com/tiagobaroni/pli-lista-exercicios"
+license: MIT
+date-released: "2025-01-01"
+keywords:
+  - milp
+  - branch-and-bound
+  - minimum-spanning-tree
+  - max-flow
+  - linear-programming
+  - python
