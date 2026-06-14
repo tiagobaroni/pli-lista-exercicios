@@ -7,7 +7,7 @@ from bb.formatting import format_number
 
 class TestFormatNumber(unittest.TestCase):
 
-    # Objective values (is_objective=True) — always 2 decimal places
+    # Objective values (is_objective=True) - always 2 decimal places
     def test_objective_integer_shows_two_decimals(self):
         self.assertEqual(format_number(19.0, is_objective=True), "19,00")
 

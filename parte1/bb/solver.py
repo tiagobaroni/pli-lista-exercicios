@@ -221,8 +221,8 @@ class BranchAndBoundSolver:
         self._next_id += 1
 
         # Add lower first, then upper.
-        # DFS (pop from right): upper is explored first unless we reverse —
-        # but spec says lower is explored first in DFS, so push upper first.
+        # DFS (pop from right): upper is explored first unless we reverse -
+        # spec says lower is explored first in DFS, so push upper first.
         if self.strategy == "dfs":
             queue.append(upper_child)
             queue.append(lower_child)

@@ -26,7 +26,7 @@ def _build_summary(solver: BranchAndBoundSolver, milp_z: float) -> str:
 
     incumbent = next((n for n in nodes if n.is_incumbent), None)
     if incumbent is None:
-        return f"=== Resultado — {model.name} ===\nNenhuma solução inteira encontrada.\n"
+        return f"=== Resultado - {model.name} ===\nNenhuma solução inteira encontrada.\n"
 
     var_str = ",  ".join(
         f"{name}={format_number(float(v))}"
@@ -43,7 +43,7 @@ def _build_summary(solver: BranchAndBoundSolver, milp_z: float) -> str:
         )
 
     lines = [
-        f"=== Resultado — {model.name} ===",
+        f"=== Resultado - {model.name} ===",
         f"Nós resolvidos: {n_solved}",
         f"Solução ótima: {var_str}  |  Z = {bb_z_fmt}",
         f"Verificação milp: Z = {milp_z_fmt}  ✓",
