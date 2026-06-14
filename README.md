@@ -1,4 +1,4 @@
-# lista_mma — Soluções Computacionais de PLIM
+# lista_mma - Soluções Computacionais de PLIM
 
 Implementações dos exercícios computacionais da lista de Programação Linear Inteira Mista,
 organizadas por parte. Cada parte é independente e pode ser executada de forma autônoma.
@@ -15,7 +15,7 @@ especialização em Métodos Matemáticos Aplicados (MMA). Está dividida em qua
 | Parte | Conteúdo | Código |
 |-------|----------|--------|
 | 1 | Árvore de Branch-and-Bound | Neste repositório |
-| 2 | Formulação matemática de problemas | Apenas documento LaTeX — sem código |
+| 2 | Formulação matemática de problemas | Apenas documento LaTeX - sem código |
 | 3 | Transporte, designação e investimento | Neste repositório |
 | 4 | Árvore geradora mínima e fluxo máximo | Neste repositório |
 
@@ -76,7 +76,7 @@ lista_mma/
 - Python 3.13
 - `numpy >= 1.26`
 - `scipy >= 1.12`
-- `networkx >= 3.0` (Parte 4 — apenas para verificação cruzada)
+- `networkx >= 3.0` (Parte 4 - apenas para verificação cruzada)
 
 ---
 
@@ -102,7 +102,7 @@ pip install -r requirements.txt
 
 ---
 
-## Parte 1 — Branch-and-Bound
+## Parte 1 - Branch-and-Bound
 
 Resolve três problemas de Programação Linear Inteira Mista usando um Branch-and-Bound
 construído sobre `scipy.optimize.linprog` (backend HiGHS). Todos os nós são impressos
@@ -121,10 +121,10 @@ status correto (`Solução Ótima`).
 
 | Argumento | Obrigatório | Padrão | Descrição |
 |-----------|-------------|--------|-----------|
-| `--exercicio` | sim | — | Número do exercício: `1`, `2` ou `4` |
+| `--exercicio` | sim | - | Número do exercício: `1`, `2` ou `4` |
 | `--strategy` | não | `dfs` | Estratégia de busca: `dfs` (pilha LIFO) ou `bfs` (fila FIFO) |
 | `--max-nodes` | não | ilimitado | Parar após processar N nós |
-| `--json-out` | não | — | Caminho para exportação da árvore em JSON |
+| `--json-out` | não | - | Caminho para exportação da árvore em JSON |
 
 ### Uso
 
@@ -176,7 +176,7 @@ Verificação milp: Z = 20,00  ✓
 
 ---
 
-## Parte 3 — Transporte, Designação e Investimento
+## Parte 3 - Transporte, Designação e Investimento
 
 ### Exercícios
 
@@ -204,7 +204,7 @@ python run.py --exercicio 6 --json-out output/investimento_ex6.json
 
 ### Formato de saída
 
-**Exercício 4 — Transporte** (trecho final):
+**Exercício 4 - Transporte** (trecho final):
 
 ```
   Balanco: TODAS as restricoes satisfeitas
@@ -212,7 +212,7 @@ python run.py --exercicio 6 --json-out output/investimento_ex6.json
   Custo total otimo: 16678,50
 ```
 
-**Exercício 5 — Designação** (trecho final):
+**Exercício 5 - Designação** (trecho final):
 
 ```
   Tempo total (milp):                  99 min
@@ -220,7 +220,7 @@ python run.py --exercicio 6 --json-out output/investimento_ex6.json
   Resultado: OK - valores coincidem
 ```
 
-**Exercício 6 — Investimento** (trecho final):
+**Exercício 6 - Investimento** (trecho final):
 
 ```
   Projetos selecionados: ['Proj 1', 'Proj 2', 'Proj 3', 'Proj 7', 'Proj 10']
@@ -231,7 +231,7 @@ python run.py --exercicio 6 --json-out output/investimento_ex6.json
 
 ---
 
-## Parte 4 — Árvore Geradora Mínima e Fluxo Máximo
+## Parte 4 - Árvore Geradora Mínima e Fluxo Máximo
 
 Os Exercícios 1 e 2 calculam a Árvore Geradora Mínima em grafos não orientados usando
 Kruskal e Prim. O Exercício 3 calcula o fluxo máximo em um grafo orientado usando
@@ -242,17 +242,17 @@ e a verificação cruzada com o NetworkX.
 
 | Exercício | Algoritmos | Grafo | Nós | Arestas/Arcos |
 |-----------|-----------|-------|-----|---------------|
-| 1 | Prim + Kruskal | G1 — não orientado | 12 | 19 |
-| 2 | Prim + Kruskal | G2 — não orientado | 15 | 28 |
-| 3 | Edmonds-Karp | G3 — orientado (fonte: 1, sumidouro: 12) | 12 | 19 |
+| 1 | Prim + Kruskal | G1 - não orientado | 12 | 19 |
+| 2 | Prim + Kruskal | G2 - não orientado | 15 | 28 |
+| 3 | Edmonds-Karp | G3 - orientado (fonte: 1, sumidouro: 12) | 12 | 19 |
 
 ### Argumentos
 
 | Argumento | Obrigatório | Padrão | Descrição |
 |-----------|-------------|--------|-----------|
-| `--exercicio` | sim | — | Número do exercício: `1`, `2` ou `3` |
+| `--exercicio` | sim | - | Número do exercício: `1`, `2` ou `3` |
 | `--prim-start` | não | `1` | Nó inicial do Prim (exercícios 1 e 2) |
-| `--json-out` | não | — | Caminho para exportação da solução em JSON |
+| `--json-out` | não | - | Caminho para exportação da solução em JSON |
 
 ### Uso
 
@@ -265,7 +265,7 @@ python run.py --exercicio 3 --json-out output/maxflow_ex3.json
 
 ### Formato de saída
 
-**Exercício 1 — AGM** (trechos representativos):
+**Exercício 1 - AGM** (trechos representativos):
 
 ```
 --- Kruskal - Sequencia de decisoes ---
@@ -287,7 +287,7 @@ python run.py --exercicio 3 --json-out output/maxflow_ex3.json
   NetworkX: 74  [OK]
 ```
 
-**Exercício 3 — Fluxo máximo** (trechos representativos):
+**Exercício 3 - Fluxo máximo** (trechos representativos):
 
 ```
 --- Caminhos aumentadores ---
@@ -314,9 +314,9 @@ python run.py --exercicio 3 --json-out output/maxflow_ex3.json
 
 | Parte | Exercício | Resultado |
 |-------|-----------|-----------|
-| 1 | 1 | Z = 20,00 — x1=1, x2=2, x3=1, x4=0 |
-| 1 | 2 | Z = 48,17 — x1=0, x2=2, x3=0,1667, x4=5 |
-| 1 | 4 | Z = 11,50 — x1=2, x2=2,5, x3=0 |
+| 1 | 1 | Z = 20,00 - x1=1, x2=2, x3=1, x4=0 |
+| 1 | 2 | Z = 48,17 - x1=0, x2=2, x3=0,1667, x4=5 |
+| 1 | 4 | Z = 11,50 - x1=2, x2=2,5, x3=0 |
 | 3 | 4 | Custo mínimo de transporte = 16.678,50 |
 | 3 | 5 | Tempo mínimo de designação = 99 min |
 | 3 | 6 | Valor presente máximo = R$ 475.000; projetos 1, 2, 3, 7 e 10; investimento = R$ 395.000 |
