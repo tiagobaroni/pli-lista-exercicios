@@ -147,7 +147,7 @@ Run from the `parte3/` directory:
 
 ```bash
 cd parte3
-python run_parte3.py --exercicio {4,5,6} [--json-out PATH]
+python run.py --exercicio {4,5,6} [--json-out PATH]
 ```
 
 | Argument | Required | Description |
@@ -159,13 +159,13 @@ python run_parte3.py --exercicio {4,5,6} [--json-out PATH]
 
 ```bash
 # Exercise 4 - transportation problem with JSON export
-python run_parte3.py --exercicio 4 --json-out output/transporte_ex4.json
+python run.py --exercicio 4 --json-out output/transporte_ex4.json
 
 # Exercise 5 - assignment problem
-python run_parte3.py --exercicio 5 --json-out output/designacao_ex5.json
+python run.py --exercicio 5 --json-out output/designacao_ex5.json
 
 # Exercise 6 - investment selection
-python run_parte3.py --exercicio 6 --json-out output/investimento_ex6.json
+python run.py --exercicio 6 --json-out output/investimento_ex6.json
 ```
 
 ### Optimal results
