@@ -64,6 +64,7 @@ lista_mma/
 │   ├── graphs.py              # dados dos grafos G1, G2 e G3
 │   ├── maxflow.py             # Edmonds-Karp
 │   ├── mst.py                 # Prim, Kruskal e Union-Find
+│   ├── plot.py                # geração de imagens PNG
 │   └── run.py
 ├── requirements.txt
 └── README.md
@@ -76,7 +77,8 @@ lista_mma/
 - Python 3.13
 - `numpy >= 1.26`
 - `scipy >= 1.12`
-- `networkx >= 3.0` (Parte 4 - apenas para verificação cruzada)
+- `networkx >= 3.0` (Parte 4 - verificação cruzada)
+- `matplotlib >= 3.7` (Parte 4 - geração de imagens)
 
 ---
 
@@ -253,6 +255,7 @@ e a verificação cruzada com o NetworkX.
 | `--exercicio` | sim | - | Número do exercício: `1`, `2` ou `3` |
 | `--prim-start` | não | `1` | Nó inicial do Prim (exercícios 1 e 2) |
 | `--json-out` | não | - | Caminho para exportação da solução em JSON |
+| `--plot` | não | - | Salvar imagem PNG da solução no caminho indicado |
 
 ### Uso
 
@@ -261,6 +264,11 @@ cd parte4
 python run.py --exercicio 1
 python run.py --exercicio 2 --prim-start 8
 python run.py --exercicio 3 --json-out output/maxflow_ex3.json
+
+# Gerar imagem da solução
+python run.py --exercicio 1 --plot output/figura_ex1_mst.png
+python run.py --exercicio 2 --plot output/figura_ex2_mst.png
+python run.py --exercicio 3 --plot output/figura_ex3_fluxo.png
 ```
 
 ### Formato de saída
@@ -307,6 +315,12 @@ python run.py --exercicio 3 --json-out output/maxflow_ex3.json
 --- Verificacao NetworkX ---
   Fluxo maximo NetworkX: 11  [OK]
 ```
+
+### Exemplos de imagem
+
+| Exercício 1 - AGM (G1) | Exercício 2 - AGM (G2) | Exercício 3 - Fluxo Máximo |
+|:---:|:---:|:---:|
+| ![Ex1](parte4/output/figura_ex1_mst.png) | ![Ex2](parte4/output/figura_ex2_mst.png) | ![Ex3](parte4/output/figura_ex3_fluxo.png) |
 
 ---
 
