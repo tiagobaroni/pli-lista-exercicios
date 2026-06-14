@@ -9,7 +9,7 @@ organised by part. Each part is self-contained and can be run independently.
 lista_mma/
   parte1/    # Branch-and-Bound solver (Exercises 1, 2 and 4)
   parte3/    # Transport, assignment and investment solvers (Exercises 4, 5 and 6)
-  parte4/    # (to be added)
+  parte4/    # MST (Prim, Kruskal) and max-flow (Edmonds-Karp) solvers (Exercises 1, 2 and 3)
   requirements.txt
 ```
 
@@ -18,6 +18,7 @@ lista_mma/
 - Python 3.13
 - `numpy >= 1.26`
 - `scipy >= 1.12`
+- `networkx >= 3.0` (Parte 4 only, for cross-verification)
 
 ## Setup
 
@@ -185,3 +186,65 @@ python -m pytest tests/ -v
 
 Expected: 18 tests pass (supply/demand balance, assignment validity,
 logical constraint satisfaction, budget and manager limit checks).
+
+---
+
+## Parte 4 - MST and Max-Flow Solvers
+
+Solves three graph optimisation exercises from scratch, with full
+decision logs and cross-verification against NetworkX.
+
+### Exercises
+
+| Exercise | Algorithm | Graph | Nodes | Edges/Arcs |
+|----------|-----------|-------|-------|------------|
+| 1 | Prim + Kruskal (MST) | G1 - undirected | 12 | 19 |
+| 2 | Prim + Kruskal (MST) | G2 - undirected | 15 | 28 |
+| 3 | Edmonds-Karp (max flow) | G3 - directed | 12 | 19 |
+
+### Usage
+
+Run from the `parte4/` directory:
+
+```bash
+cd parte4
+python run.py --exercicio {1,2,3} [--prim-start NODE] [--json-out PATH]
+```
+
+| Argument | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `--exercicio` | yes | - | Exercise number: 1, 2 (MST) or 3 (max flow) |
+| `--prim-start` | no | `1` | Starting node for Prim's algorithm (MST only) |
+| `--json-out` | no | - | Export solution to JSON file |
+
+### Examples
+
+```bash
+# Exercise 1 - MST for G1 with JSON export
+python run.py --exercicio 1 --json-out output/mst_ex1.json
+
+# Exercise 2 - MST for G2 with custom Prim start node
+python run.py --exercicio 2 --prim-start 8
+
+# Exercise 3 - max flow for G3 with JSON export
+python run.py --exercicio 3 --json-out output/maxflow_ex3.json
+```
+
+### Optimal results
+
+| Exercise | Result |
+|----------|--------|
+| 1 | MST weight = 74 |
+| 2 | MST weight = 86 |
+| 3 | Max flow = 11 (source: node 1, sink: node 12) |
+
+### Running tests
+
+```bash
+cd parte4
+python -m pytest tests/ -v
+```
+
+Expected: 25 tests pass (UnionFind correctness, Kruskal/Prim edge count and
+weight matching NetworkX, flow conservation, min-cut capacity, arc capacity
+bounds).
