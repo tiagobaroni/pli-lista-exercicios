@@ -10,6 +10,14 @@ import numpy as np
 
 from bb.model import BBNode, MILPModel
 
+# Statuses for which Z and variable values are shown in the text box.
+# Pruned nodes ("Solução Infactível", "Inferior a melhor já obtida") show Status only.
+_SHOW_SOLUTION_STATUSES: frozenset[str] = frozenset({
+    "Ramificado",
+    "Solução Candidata",
+    "Solução Ótima",
+})
+
 
 def format_number(value: float, is_objective: bool = False) -> str:
     """Format a float using Brazilian decimal conventions.
@@ -51,10 +59,10 @@ def format_node_box(node: BBNode, model: MILPModel) -> str:
         constraints_str = ", ".join(node.branch_constraints)
         lines.append(f"  Ramo: {constraints_str}")
 
-    if node.Z is not None:
+    if node.status in _SHOW_SOLUTION_STATUSES and node.Z is not None:
         lines.append(f"  Z  = {format_number(node.Z, is_objective=True)}")
 
-    if node.x is not None:
+    if node.status in _SHOW_SOLUTION_STATUSES and node.x is not None:
         for name, val in zip(model.var_names, node.x):
             lines.append(f"  {name} = {format_number(float(val))}")
 
